@@ -6,7 +6,22 @@ using System.Threading.Tasks;
 
 namespace Library.UtiAndSim
 {
-    internal class LogFile
+    public class LogFile
     {
+
+        public void logDoorLocked(string id )
+        {
+            using (StreamWriter sw = new StreamWriter("LogFile.txt"))
+            {
+                sw.WriteLine(DateTime.Now);
+                sw.WriteLine(id);
+            }
+        }
+
+
+        public void logDoorUnlocked(string id)
+        {
+            
+        }
     }
 }

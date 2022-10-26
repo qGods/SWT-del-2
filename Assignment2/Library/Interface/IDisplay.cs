@@ -19,6 +19,14 @@ namespace Library.Interface
         public void rfidError();
 
         public void removePhone();
-        
+
+        public void FullCharge();
+
+        public void NormalCharge();
+
+        public void OverCharged();
+
+        public void NotConnected();
+
     }
 }

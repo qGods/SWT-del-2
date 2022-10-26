@@ -9,13 +9,12 @@ namespace Library.UtiAndSim
 {
     public class Door : IDoor
     {
-        public event EventHandler<DoorStateEventArgs> DoorStateEvent;
+        public event EventHandler<DoorStateEventArgs> DoorStateEvent; //event
 
         private DoorState _doorState;
 
 
-
-
+        //This method calls "OnDorrState", which will raise an event
         public void SetDoorState(DoorState newDoorState)
         {
             if (newDoorState != _doorState)
@@ -26,8 +25,11 @@ namespace Library.UtiAndSim
 
         }
 
+        
         protected virtual void OnDoorState(DoorStateEventArgs e)
         {
+            //call all the event handler methods which is registered with "DoorStateEvent"
+            //"subsribers" are the classes which will register to "DorStateEvent"
             DoorStateEvent?.Invoke(this, e);
         }
 

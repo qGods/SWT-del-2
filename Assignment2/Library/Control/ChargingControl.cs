@@ -20,10 +20,10 @@ namespace Library.Control
 
         private enum ChargeState
         {
-            NoCharge,
+            NotConnected,
             NormalCharge,
-            FullyCharged,
-            OverloadCharge
+            FullCharge,
+            OverCharged
         };
 
         private ChargeState state;
@@ -65,13 +65,13 @@ namespace Library.Control
         {
             if (currentValue <= FullyChargedCurrent && currentValue > NoChargeCurrent)
             {
-                if (state == ChargeState.FullyCharged)
+                if (state == ChargeState.FullCharge)
                 {
                     return;
                 }
 
-                state = ChargeState.FullyCharged;
-                _display.FullyCharged();
+                state = ChargeState.FullCharge;
+                _display.FullCharge();
             }
             else if (currentValue > FullyChargedCurrent && currentValue <= MaxCurrent)
             {
@@ -81,26 +81,26 @@ namespace Library.Control
                 }
 
                 state = ChargeState.NormalCharge;
-                _display.NormalCharging();
+                _display.NormalCharge();
             }
             else if (currentValue >= MaxCurrent)
             {
-                if (state == ChargeState.OverloadCharge)
+                if (state == ChargeState.OverCharged)
                 {
                     return;
                 }
 
-                state = ChargeState.OverloadCharge;
-                _display.OverloadError();
+                state = ChargeState.OverCharged;
+                _display.OverCharged();
             }
             else
             {
-                if (state == ChargeState.NoCharge)
+                if (state == ChargeState.NotConnected)
                 {
                     return;
                 }
 
-                state = ChargeState.NoCharge;
+                state = ChargeState.NotConnected;
                 _display.NotConnected();
             }
         }
