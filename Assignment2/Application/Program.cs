@@ -7,6 +7,7 @@
             bool finish = false;
             do
             {
+                //hej
                 string input;
                 System.Console.WriteLine("Indtast E, O, C, R: ");
                 input = Console.ReadLine();
