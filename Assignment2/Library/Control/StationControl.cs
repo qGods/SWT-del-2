@@ -41,7 +41,7 @@ namespace Library.Control
             door.DoorStateEvent += HandleDoorStateEvent;
 
 
-            rfIDReader.rfIDEvent += HandlerfIDDetectedEvent;
+            rfIDReader.rfIDEvent += RfidDetected; // subscribe with an event from rfIDReader
 
             _door = door;
 
@@ -56,8 +56,23 @@ namespace Library.Control
             _state = LadeskabState.Available;
         }
 
+        private void HandleDoorStateEvent(object sender, DoorStateEventArgs e)
+        {
+            switch (_state)
+            {
+                case LadeskabState.DoorOpen:
+                    
+                    _display.connectPhone();
+                break;
+
+                case LadeskabState.Locked:
+                     _display.scanRfid();
+                break;
+            }
+        }
+
         // Eksempel på event handler for eventet "RFID Detected" fra tilstandsdiagrammet for klassen
-        private void RfidDetected(int id)
+        private void RfidDetected(object sender, rfIDDetectedArgs e)
         {
             switch (_state)
             {
@@ -67,10 +82,10 @@ namespace Library.Control
                     {
                         _door.DoorLock();
                         _charger.StartCharge();
-                        _oldId = id;
+                        _oldId = e.rfIDDetected;
                         using (var writer = File.AppendText(logFile))
                         {
-                            writer.WriteLine(DateTime.Now + ": Skab låst med RFID: {0}", id);
+                            writer.WriteLine(DateTime.Now + ": Skab låst med RFID: {0}", e.rfIDDetected);
                         }
 
                         Console.WriteLine("Skabet er låst og din telefon lades. Brug dit RFID tag til at låse op.");
@@ -89,13 +104,13 @@ namespace Library.Control
 
                 case LadeskabState.Locked:
                     // Check for correct ID
-                    if (id == _oldId)
+                    if (e.rfIDDetected == _oldId)
                     {
                         _charger.StopCharge();
                         _door.DoorUnlock();
                         using (var writer = File.AppendText(logFile))
                         {
-                            writer.WriteLine(DateTime.Now + ": Skab låst op med RFID: {0}", id);
+                            writer.WriteLine(DateTime.Now + ": Skab låst op med RFID: {0}", e.rfIDDetected);
                         }
 
                         Console.WriteLine("Tag din telefon ud af skabet og luk døren");

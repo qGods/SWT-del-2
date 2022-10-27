@@ -25,8 +25,9 @@ namespace Library.Interface
     public enum DoorState
 
     {
-        locked,
-        unlocked
+        //comments fra frank
+        open,
+        closed
     }
 
 }

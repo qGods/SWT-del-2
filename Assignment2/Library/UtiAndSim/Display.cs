@@ -55,6 +55,11 @@ namespace Library.UtiAndSim
             Console.WriteLine("Charging is working as intended");
         }
 
+        public void OverCharged()
+        {
+            Console.WriteLine("Phone is over charged, remove charger immediately");
+        }
+
         public void NotConnected()
         {
             Console.WriteLine("Phone is not connected, check connection");

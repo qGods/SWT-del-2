@@ -14,6 +14,11 @@ namespace Library.UtiAndSim
         private DoorState _doorState;
 
 
+        public Door()
+        {
+            SetDoorState(DoorState.unlocked);
+        }
+
         //This method calls "OnDorrState", which will raise an event
         public void SetDoorState(DoorState newDoorState)
         {
@@ -31,11 +36,6 @@ namespace Library.UtiAndSim
             //call all the event handler methods which is registered with "DoorStateEvent"
             //"subsribers" are the classes which will register to "DorStateEvent"
             DoorStateEvent?.Invoke(this, e);
-        }
-
-        public Door()
-        {
-            SetDoorState(DoorState.unlocked);
         }
 
         public void DoorLock()

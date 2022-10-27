@@ -9,6 +9,7 @@ using Library.UtiAndSim;
 
 namespace Library.UtiAndSim
 {
+    
     public class rfIDReader :  IrfIDReader
     {
         public event EventHandler<rfIDDetectedArgs> rfIDEvent;

@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Library.Interface
 {
-    internal class ILogFile
+    public interface ILogFile
     {
+        public void logDoorLocked(string id);
+        public void logDoorUnlocked(string id);
     }
 }
