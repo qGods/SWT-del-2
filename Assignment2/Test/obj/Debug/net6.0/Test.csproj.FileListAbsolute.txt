@@ -1,0 +1,6 @@
+D:\4. semester\Software-test\AndenAflevering\Assignment2\Test\bin\Debug\net6.0\CoverletSourceRootsMapping
+D:\4. semester\Software-test\AndenAflevering\Assignment2\Test\obj\Debug\net6.0\Test.csproj.AssemblyReference.cache
+D:\4. semester\Software-test\AndenAflevering\Assignment2\Test\obj\Debug\net6.0\Test.GeneratedMSBuildEditorConfig.editorconfig
+D:\4. semester\Software-test\AndenAflevering\Assignment2\Test\obj\Debug\net6.0\Test.AssemblyInfoInputs.cache
+D:\4. semester\Software-test\AndenAflevering\Assignment2\Test\obj\Debug\net6.0\Test.AssemblyInfo.cs
+D:\4. semester\Software-test\AndenAflevering\Assignment2\Test\obj\Debug\net6.0\Test.csproj.CoreCompileInputs.cache
