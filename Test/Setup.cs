@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Test
 {
-    internal class Setup
+    public class Setup
     {
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Test
 {
-    internal class TestStatinControl
+    internal class TestStationControl
     {
     }
 }

@@ -14,7 +14,7 @@ namespace Library.Control
     public class StationControl
     {
         // Enum med tilstande ("states") svarende til tilstandsdiagrammet for klassen
-        public enum LadeskabState //make private later
+        private enum LadeskabState //make private later
         {
             Available,
             Locked,
@@ -22,7 +22,7 @@ namespace Library.Control
         };
 
         // Her mangler flere member variable
-        public LadeskabState _state { get; private set; }
+        private LadeskabState _state;
         private IChargingControl _charger;
         private int _oldId;
         private IDoor _door;
@@ -39,7 +39,6 @@ namespace Library.Control
         public StationControl(IChargingControl charger, IDoor door, IDisplay display, IrfIDReader rfIDReader, ILogFile LogFile)
         {
             door.DoorStateEvent += HandleDoorStateEvent;
-
 
             rfIDReader.rfIDEvent += RfidDetected; // subscribe with an event from rfIDReader
 
@@ -67,8 +66,55 @@ namespace Library.Control
 
                 case DoorState.closed:
                     _charger.StartCharge();
-                     _display.scanRfid();
+                    _display.scanRfid();
                 break;
+            }
+        }
+
+
+
+        private void AvailableState(int ID)
+        {
+            if (!IsConnected())
+            {
+                _display.NotConnected();
+            }
+            else
+            {
+                _door.DoorLock();
+                _oldId = ID;
+                _state = LadeskabState.Locked;
+                _display.scanRfid();
+                _LogFile.logDoorLocked(ID.ToString());
+                _charger.StartCharge();
+            }
+        }
+
+        private void LockStateCheck(int ID)
+        {
+            if (!CheckID(ID))
+            {
+                _display.rfidError();
+            }
+            else
+            {
+                _door.DoorUnlock();
+                _display.removePhone();
+                _state = LadeskabState.Available;
+                _charger.StopCharge();
+                _LogFile.logDoorUnlocked(ID.ToString());
+            }
+        }
+
+        private void CheckStateDoor()
+        {
+            if (_doorEvent == DoorState.DoorUnlock())
+            {
+                DoorOpen();
+            }
+            else
+            {
+                DoorClose();
             }
         }
 
@@ -126,8 +172,41 @@ namespace Library.Control
             }
         }
 
-       
+        private bool CheckID(int ID)
+        {
+            if (ID == _oldId)
+            {
+                return true;
+            }
 
-        // Her mangler de andre trigger handlere
+            else
+            {
+                _display.rfidError();
+                return false;
+            }
+        }
+
+        private void DoorOpen()
+        {
+            _display.connectPhone();
+            _charger.IsConnected = true;
+        }
+
+        private void DoorClose()
+        {
+            _display.scanRfid();
+            _charger.IsConnected = false;
+        }
+
+        private void LockedDoor()
+        {
+            _display.occupied();
+        }
+
+        private bool IsConnected()
+        {
+            return _charger.IsConnected;
+        }
+
     }
 }
