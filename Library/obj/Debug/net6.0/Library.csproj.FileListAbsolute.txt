@@ -22,3 +22,15 @@ D:\4. semester\Software-test\AndenAflevering\Assignment2\Library\obj\Debug\net6.
 D:\4. semester\Software-test\AndenAflevering\Assignment2\Library\obj\Debug\net6.0\refint\Library.dll
 D:\4. semester\Software-test\AndenAflevering\Assignment2\Library\obj\Debug\net6.0\Library.pdb
 D:\4. semester\Software-test\AndenAflevering\Assignment2\Library\obj\Debug\net6.0\ref\Library.dll
+C:\Users\jepp5\Documents\GitHub\SWT-del-2\Library\bin\Debug\net6.0\Library.deps.json
+C:\Users\jepp5\Documents\GitHub\SWT-del-2\Library\bin\Debug\net6.0\Library.dll
+C:\Users\jepp5\Documents\GitHub\SWT-del-2\Library\bin\Debug\net6.0\Library.pdb
+C:\Users\jepp5\Documents\GitHub\SWT-del-2\Library\obj\Debug\net6.0\Library.csproj.AssemblyReference.cache
+C:\Users\jepp5\Documents\GitHub\SWT-del-2\Library\obj\Debug\net6.0\Library.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jepp5\Documents\GitHub\SWT-del-2\Library\obj\Debug\net6.0\Library.AssemblyInfoInputs.cache
+C:\Users\jepp5\Documents\GitHub\SWT-del-2\Library\obj\Debug\net6.0\Library.AssemblyInfo.cs
+C:\Users\jepp5\Documents\GitHub\SWT-del-2\Library\obj\Debug\net6.0\Library.csproj.CoreCompileInputs.cache
+C:\Users\jepp5\Documents\GitHub\SWT-del-2\Library\obj\Debug\net6.0\Library.dll
+C:\Users\jepp5\Documents\GitHub\SWT-del-2\Library\obj\Debug\net6.0\refint\Library.dll
+C:\Users\jepp5\Documents\GitHub\SWT-del-2\Library\obj\Debug\net6.0\Library.pdb
+C:\Users\jepp5\Documents\GitHub\SWT-del-2\Library\obj\Debug\net6.0\ref\Library.dll

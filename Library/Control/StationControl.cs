@@ -58,14 +58,15 @@ namespace Library.Control
 
         private void HandleDoorStateEvent(object sender, DoorStateEventArgs e)
         {
-            switch (_state)
+            switch (e.DoorStateEvent)
             {
-                case LadeskabState.DoorOpen:
+                case DoorState.open:
                     
                     _display.connectPhone();
                 break;
 
-                case LadeskabState.Locked:
+                case DoorState.closed:
+                    _charger.StartCharge();
                      _display.scanRfid();
                 break;
             }
@@ -80,7 +81,7 @@ namespace Library.Control
                     // Check for ladeforbindelse
                     if (_charger.IsConnected)
                     {
-                        _door.DoorLock();
+                        _door.DoorLock(); //should already be locked
                         _charger.StartCharge();
                         _oldId = e.rfIDDetected;
                         using (var writer = File.AppendText(logFile))

@@ -16,7 +16,8 @@ namespace Library.UtiAndSim
 
         public Door()
         {
-            SetDoorState(DoorState.open);
+            _doorState = DoorState.open;
+            //SetDoorState(DoorState.open);
         }
 
         //This method calls "OnDorrState", which will raise an event
@@ -24,8 +25,13 @@ namespace Library.UtiAndSim
         {
             if (newDoorState != _doorState)
             {
+                Console.WriteLine("Door is now " + newDoorState);
                 OnDoorState(new DoorStateEventArgs { DoorStateEvent = newDoorState });
                 _doorState = newDoorState;
+            }
+            else
+            {
+                Console.WriteLine("Door is already "+_doorState);
             }
 
         }
@@ -40,13 +46,15 @@ namespace Library.UtiAndSim
 
         public void DoorLock()
         {
-            Console.WriteLine("Door locked");
-            _doorState = DoorState.closed;
+            //Console.WriteLine("Door locked");
+            SetDoorState(DoorState.closed);
+            //_doorState = DoorState.closed;
         }
 
         public void DoorUnlock()
         {
-            _doorState = DoorState.open;
+            SetDoorState(DoorState.open);
+            //_doorState = DoorState.open;
         }
     }
 }

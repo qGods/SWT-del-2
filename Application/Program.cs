@@ -9,20 +9,16 @@ class Program
         IUsbCharger charger = new UsbChargerSimulator();
         IDisplay display = new Display();
         IChargingControl chargecontrol = new ChargingControl(charger,display);
-        IrfIDReader rfidreader = new rfIDReader();
+        IrfIDReader rfidReader = new rfIDReader();
         ILogFile logfile = new LogFile();
-        StationControl control = new StationControl(chargecontrol,door,display,rfidreader,logfile);
-
+        StationControl control = new StationControl(chargecontrol,door,display,rfidReader,logfile);
             // Assemble your system here from all the classes
         bool finish = false;
         do
         {
-            
-            //hej
-            
             string input;
             System.Console.WriteLine("Indtast E, O, C, R: ");
-            input = Console.ReadLine();
+            input = Console.ReadLine().ToUpper();
             if (string.IsNullOrEmpty(input)) continue;
 
             switch (input[0])
@@ -32,20 +28,18 @@ class Program
                     break;
 
                 case 'O':
-                    //door.OnDoorOpen();
-                    door.DoorLock();
+                    door.DoorUnlock();
                     break;
 
                 case 'C':
-                    //door.OnDoorClose();
+                    door.DoorLock();
                     break;
 
                 case 'R':
                     System.Console.WriteLine("Indtast RFID id: ");
                     string idString = System.Console.ReadLine();
-
                     int id = Convert.ToInt32(idString);
-                    //rfidReader.OnRfidRead(id);
+                    rfidReader.ReadrfID(id);
                     break;
 
                 default:
