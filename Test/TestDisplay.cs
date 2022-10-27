@@ -32,64 +32,60 @@ namespace Test
         [Test]
         public void scanRfidTest()
         {
-            _uut.connectPhone();
+            _uut.scanRfid();
             Assert.That(sw.ToString(), Contains.Substring("Please scan your Rfid"));
         }
 
         [Test]
         public void connectionErrorTest()
         {
-            _uut.connectPhone();
+            _uut.connectionError();
             Assert.That(sw.ToString(), Contains.Substring("Try reconnecting your phone"));
         }
 
 
-        public void occupiedTrst()
+        public void occupiedTest()
         {
-            _uut.connectPhone();
+            _uut.occupied();
             Assert.That(sw.ToString(), Contains.Substring("The box is occupied"));
         }
 
         public void rfidErrorTest()
         {
-            _uut.connectPhone();
+            _uut.rfidError();
             Assert.That(sw.ToString(), Contains.Substring("Try scanning again"));
         }
 
 
         public void removePhoneTest()
         {
-            _uut.connectPhone();
+            _uut.removePhone();
             Assert.That(sw.ToString(), Contains.Substring("Please remove your phone"));
         }
 
         public void FullChargeTest()
         {
-            _uut.connectPhone();
+            _uut.FullCharge();
             Assert.That(sw.ToString(), Contains.Substring("Phone is fully charged"));
         }
 
         public void OverloadChargeTest()
         {
-            _uut.connectPhone();
+            _uut.OverCharged();
             Assert.That(sw.ToString(), Contains.Substring("Something is wrong, disconnect charger"));
         }
 
         public void NormalChargeTest()
         {
-            _uut.connectPhone();
+            _uut.NormalCharge();
             Assert.That(sw.ToString(), Contains.Substring("Charging is working as intended"));
         }
 
-        public void OverChargedTest()
-        {
-            _uut.connectPhone();
-            Assert.That(sw.ToString(), Contains.Substring("Phone is over charged, remove charger immediately"));
-        }
+      
 
         public void NotConnectedTest()
         {
-            _uut.connectPhone();
+            _uut.NotConnected();
             Assert.That(sw.ToString(), Contains.Substring("Phone is not connected, check connection"));
         }
 

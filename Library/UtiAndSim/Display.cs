@@ -45,7 +45,7 @@ namespace Library.UtiAndSim
             Console.WriteLine("Phone is fully charged");
         }
 
-        public void OverloadCharge()
+        public void OverCharged()
         {
             Console.WriteLine("Something is wrong, disconnect charger");
         }
@@ -55,10 +55,7 @@ namespace Library.UtiAndSim
             Console.WriteLine("Charging is working as intended");
         }
 
-        public void OverCharged()
-        {
-            Console.WriteLine("Phone is over charged, remove charger immediately");
-        }
+        
 
         public void NotConnected()
         {
