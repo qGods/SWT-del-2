@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1yayjWdLeeWn7QWa5ed6J6b85nZ45m8fBuvXaGbGmiu41ACd2kr9+ARFiJPDeoNshn9F8U1DVKJtAK9+2NX+fQ==",
+  "dgSpecHash": "uSCr95MkPjjvbVrKJy5OEEULHTWJgr/iTtWoxxeQ4buiu8YmOph1dtvZlKt00NFxXg6D2LuJ6cPhpn/+IfrUFQ==",
   "success": true,
-  "projectFilePath": "D:\\4. semester\\Software-test\\AndenAflevering\\Assignment2\\Test\\Test.csproj",
+  "projectFilePath": "D:\\4. semester\\Software-test\\AndenAflevering\\Test\\Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\castle.core\\5.0.0\\castle.core.5.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",

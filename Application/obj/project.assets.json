@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\4. semester\\Software-test\\AndenAflevering\\Assignment2\\Application\\Application.csproj",
+      "projectUniqueName": "D:\\4. semester\\Software-test\\AndenAflevering\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "D:\\4. semester\\Software-test\\AndenAflevering\\Assignment2\\Application\\Application.csproj",
+      "projectPath": "D:\\4. semester\\Software-test\\AndenAflevering\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "D:\\4. semester\\Software-test\\AndenAflevering\\Assignment2\\Application\\obj\\",
+      "outputPath": "D:\\4. semester\\Software-test\\AndenAflevering\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -58,8 +58,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\4. semester\\Software-test\\AndenAflevering\\Assignment2\\Library\\Library.csproj": {
-              "projectPath": "D:\\4. semester\\Software-test\\AndenAflevering\\Assignment2\\Library\\Library.csproj"
+            "D:\\4. semester\\Software-test\\AndenAflevering\\Library\\Library.csproj": {
+              "projectPath": "D:\\4. semester\\Software-test\\AndenAflevering\\Library\\Library.csproj"
             }
           }
         }
