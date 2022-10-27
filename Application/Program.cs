@@ -12,7 +12,7 @@ class Program
         IrfIDReader rfidReader = new rfIDReader();
         ILogFile logfile = new LogFile();
         StationControl control = new StationControl(chargecontrol,door,display,rfidReader,logfile);
-            // Assemble your system here from all the classes
+        // Assemble your system here from all the classes
         bool finish = false;
         do
         {
