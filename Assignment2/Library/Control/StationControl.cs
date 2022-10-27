@@ -14,7 +14,7 @@ namespace Library.Control
     public class StationControl
     {
         // Enum med tilstande ("states") svarende til tilstandsdiagrammet for klassen
-        private enum LadeskabState
+        public enum LadeskabState //make private later
         {
             Available,
             Locked,

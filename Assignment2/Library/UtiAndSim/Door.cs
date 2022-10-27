@@ -16,7 +16,7 @@ namespace Library.UtiAndSim
 
         public Door()
         {
-            SetDoorState(DoorState.unlocked);
+            SetDoorState(DoorState.open);
         }
 
         //This method calls "OnDorrState", which will raise an event
@@ -29,7 +29,7 @@ namespace Library.UtiAndSim
             }
 
         }
-
+        //TODO: Instead of calling SetDoorState from other classes, make them call doorlock / doorunlock which then calls setdoorstate
         
         protected virtual void OnDoorState(DoorStateEventArgs e)
         {
@@ -40,12 +40,13 @@ namespace Library.UtiAndSim
 
         public void DoorLock()
         {
-            _doorState = DoorState.locked;
+            Console.WriteLine("Door locked");
+            _doorState = DoorState.closed;
         }
 
         public void DoorUnlock()
         {
-            _doorState = DoorState.unlocked;
+            _doorState = DoorState.open;
         }
     }
 }
