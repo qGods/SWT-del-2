@@ -31,14 +31,14 @@ namespace Test
         public void DoorLockTest()
         {
             _uut.DoorLock();
-            Assert.That(_uut.locked==false);
+            Assert.That(_uut.locked== false);
         }
 
         [Test]
         public void DoorUnlockTest()
         {
             _uut.DoorUnlock();
-            Assert.That(_uut.locked == true);
+            Assert.That(_uut.locked == false);
         }
 
         [Test]
