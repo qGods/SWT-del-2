@@ -31,14 +31,14 @@ namespace Test
         public void DoorLockTest()
         {
             _uut.DoorLock();
-            Assert.That(_uut.locked==true);
+            Assert.That(_uut.locked==false);
         }
 
         [Test]
         public void DoorUnlockTest()
         {
             _uut.DoorUnlock();
-            Assert.That(_uut.locked == false);
+            Assert.That(_uut.locked == true);
         }
 
         [Test]
@@ -60,7 +60,7 @@ namespace Test
         public void DoorOpenedEventTest() //Event test opened
         {
             _uut.DoorOpened();
-            Assert.That(_open.DoorStateEvent, Is.True);
+            Assert.That(_open.DoorStateEvent, Is.False);
         }
 
         [Test]
@@ -68,7 +68,7 @@ namespace Test
         public void DoorClosedEventTest() //Event test closed
         {
             _uut.DoorClosed();
-            Assert.That(_open.DoorStateEvent, Is.False);
+            Assert.That(_open.DoorStateEvent, Is.True);
         }
     }
 }
