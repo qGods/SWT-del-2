@@ -13,41 +13,38 @@ namespace Test
     public class TestLogFile
     {
         private ILogFile _uut;
-    
+
         [SetUp]
         public void Setup()
         {
             _uut = new LogFile();
-            
+
         }
 
-        
+
 
         [Test]
         public void logDoorLockedTest()
         {
-
             int id = 1;
-            _uut.logDoorLocked(id.ToString());
+            _uut.logDoorLocked(id);
             var list = new List<string>();
             var fileStream = new FileStream(@".\LogFile.txt", FileMode.Open, FileAccess.Read);
 
-            using (var streamReader = new StreamReader(fileStream)
+            using (var streamReader = new StreamReader(fileStream))
             {
-                while(streamReader.Peek != -1)
+                while (streamReader.Peek() != -1)
                 {
                     list.Add(streamReader.ReadLine());
                 }
             }
-            var result = list[List.Count - 2] + list[list.Count - 1];
-            string message = DateTime.Now + "\nID: {0} has locked the door", id;
-            Assert.AreEqual<string>(result, message) ;
+
+            var result = list[list.Count - 2] + list[list.Count - 1];
+            string message = DateTime.Now + "\nID: 1 has locked the door";
+            Assert.That(result, Is.EqualTo(message));
         }
 
-
-    
     }
 
-    
-
 }
+
