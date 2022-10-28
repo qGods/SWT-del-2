@@ -27,7 +27,9 @@ namespace Library.Interface
     {
         //comments fra frank
         open,
-        closed
+        closed,
+        DoorUnlock,
+        DoorLock
     }
 
 }

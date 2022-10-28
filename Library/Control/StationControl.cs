@@ -108,7 +108,7 @@ namespace Library.Control
 
         private void CheckStateDoor()
         {
-            if (_doorEvent == DoorState.DoorUnlock())
+            if (_doorEvent == DoorState.DoorUnlock)
             {
                 DoorOpen();
             }
