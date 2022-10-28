@@ -40,7 +40,7 @@ namespace Test
             }
 
             var result = list[list.Count - 2] + list[list.Count - 1];
-            string message = DateTime.Now + "ID: 1 has locked the door";
+            string message = DateTime.Now + " ID: 1 has locked the door";
             Assert.That(result, Is.EqualTo(message));
         }
 
