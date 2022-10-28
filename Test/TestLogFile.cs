@@ -25,9 +25,9 @@ namespace Test
         public void logDoorLockedTest()
         {
             int id = 1;
-            //_uut.logDoorLocked(id);
+            _uut.logDoorLocked(id.ToString());
             string message = DateTime.Now + "ID: {0} has locked the door";
-            //Assert.That(id, message) ;
+            Assert.That(id, message) ;
         }
     
     }

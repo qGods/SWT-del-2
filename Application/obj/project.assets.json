@@ -27,25 +27,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\batu1\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Lenovo\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\batu1\\Desktop\\4. semester\\Software test\\assignment2Alternativ\\SWT-del-2\\Application\\Application.csproj",
+      "projectUniqueName": "D:\\4. semester\\Software-test\\AndenAflevering\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\batu1\\Desktop\\4. semester\\Software test\\assignment2Alternativ\\SWT-del-2\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\batu1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\batu1\\Desktop\\4. semester\\Software test\\assignment2Alternativ\\SWT-del-2\\Application\\obj\\",
+      "projectPath": "D:\\4. semester\\Software-test\\AndenAflevering\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+      "outputPath": "D:\\4. semester\\Software-test\\AndenAflevering\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\batu1\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -58,8 +58,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\batu1\\Desktop\\4. semester\\Software test\\assignment2Alternativ\\SWT-del-2\\Library\\Library.csproj": {
-              "projectPath": "C:\\Users\\batu1\\Desktop\\4. semester\\Software test\\assignment2Alternativ\\SWT-del-2\\Library\\Library.csproj"
+            "D:\\4. semester\\Software-test\\AndenAflevering\\Library\\Library.csproj": {
+              "projectPath": "D:\\4. semester\\Software-test\\AndenAflevering\\Library\\Library.csproj"
             }
           }
         }
