@@ -99,10 +99,10 @@ namespace Library.Control
                 if (state == ChargeState.NotConnected)
                 {
                     return;
-                } 
-
-                state = ChargeState.NotConnected;
+                }
                 _display.NotConnected();
+                state = ChargeState.NotConnected;
+                
             }
         }
 
