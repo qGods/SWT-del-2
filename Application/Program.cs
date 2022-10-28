@@ -1,6 +1,7 @@
 ﻿using Library.Control;
 using Library.UtiAndSim;
 using Library.Interface;
+
 class Program
 {
     static void Main(string[] args)
@@ -11,7 +12,7 @@ class Program
         IChargingControl chargecontrol = new ChargingControl(charger,display);
         IrfIDReader rfidReader = new rfIDReader();
         ILogFile logfile = new LogFile();
-        StationControl control = new StationControl(chargecontrol,door,display,rfidReader,logfile);
+        StationControl stationcontrol = new StationControl(chargecontrol,door,rfidReader,display,logfile); 
         // Assemble your system here from all the classes
         bool finish = false;
         do
