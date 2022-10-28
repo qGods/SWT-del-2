@@ -21,11 +21,21 @@ namespace Test
             
         }
 
+        
+
         [Test]
         public void logDoorLockedTest()
         {
+
             int id = 1;
             _uut.logDoorLocked(id.ToString());
+            List
+            var fileStream = new FileStream(@".\LogFile.txt", FileMode.Open, FileAccess.Read);
+
+            using (var streamReader = new StreamReader(fileStream)
+            {
+                while(streamReader.Peek != -1);
+            }
             string message = DateTime.Now + "ID: {0} has locked the door";
             Assert.That(id, message) ;
         }

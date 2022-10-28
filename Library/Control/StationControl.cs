@@ -23,7 +23,7 @@ namespace Library.Control
 
         public  LadeskabState _state { get; set; }
         private IChargingControl _charger;
-        public int _oldId { get; private set; }
+        public int _oldID { get; private set; }
         private IDoor _door;
         private IDisplay _display;
         private IrfIDReader _rfIDReader;
@@ -54,7 +54,7 @@ namespace Library.Control
             _state = LadeskabState.Available;
         }
 
-        private void RfidDetected(object? rfIDReader, rfIDDetectedArgs e)
+        public void RfidDetected(object? rfIDReader, rfIDDetectedArgs rfidArgs)
         {
             if (_state == LadeskabState.Available)
             {
@@ -63,25 +63,27 @@ namespace Library.Control
                     _display.NotConnected();
                     using (var writer = File.AppendText(logFile))
                     {
-                        writer.WriteLine(DateTime.Now + "Phone Not Connected", e.rfIDDetected);
+                        writer.WriteLine(DateTime.Now + "Phone Not Connected", rfidArgs.ID);
                     }
                 }
+
                 _charger.StartCharge();
 
                 _door.DoorLock();
-                _oldId = ID;
+                _oldID = rfidArgs.ID;
 
-                _LogFile.logDoorLocked(_oldId);
+                _LogFile.logDoorLocked(_oldID);
 
                 _state = LadeskabState.Locked;
+            }
 
-                else if (_state == LadeskabState.Locked)
+            else if (_state == LadeskabState.Locked)
                 {
-                    if (CheckID(ID))
+                    if (CheckID(rfidArgs.ID))
                     {
                         _charger.StopCharge();
                         _door.DoorUnlock();
-                        _LogFile.logDoorUnlocked(ID);
+                        _LogFile.logDoorUnlocked(rfidArgs.ID);
                         _state = LadeskabState.Available;
                         _display.removePhone();
                     }
@@ -90,12 +92,11 @@ namespace Library.Control
                         _display.occupied();
                     }
                 }
-            }
         }
 
         private bool CheckID(int ID)
         {
-            if (ID == _oldId)
+            if (ID == _oldID)
             {
                 return true;
             }
@@ -154,7 +155,7 @@ namespace Library.Control
             else
             {
                 _door.DoorLock();
-                _oldId = ID;
+                _oldID = rfidArgs.ID;
                 _state = LadeskabState.Locked;
                 _display.scanRfid();
                 _LogFile.logDoorLocked(ID.ToString());

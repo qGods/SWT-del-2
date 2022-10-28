@@ -8,25 +8,25 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Lenovo\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\batu1\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\4. semester\\Software-test\\AndenAflevering\\Library\\Library.csproj",
+      "projectUniqueName": "C:\\Users\\batu1\\Desktop\\4. semester\\Software test\\assignment2Alternativ\\SWT-del-2\\Library\\Library.csproj",
       "projectName": "Library",
-      "projectPath": "D:\\4. semester\\Software-test\\AndenAflevering\\Library\\Library.csproj",
-      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "D:\\4. semester\\Software-test\\AndenAflevering\\Library\\obj\\",
+      "projectPath": "C:\\Users\\batu1\\Desktop\\4. semester\\Software test\\assignment2Alternativ\\SWT-del-2\\Library\\Library.csproj",
+      "packagesPath": "C:\\Users\\batu1\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\batu1\\Desktop\\4. semester\\Software test\\assignment2Alternativ\\SWT-del-2\\Library\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\batu1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"

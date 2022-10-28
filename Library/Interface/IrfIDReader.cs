@@ -8,7 +8,6 @@ namespace Library.Interface
 {
     public class rfIDDetectedArgs : EventArgs
     { 
-        public int rfIDDetected { get; set; }
         public int ID { get; set; }
     }
 
