@@ -14,14 +14,14 @@ namespace Library.Control
     public class StationControl
     {
         // Enum med tilstande ("states") svarende til tilstandsdiagrammet for klassen
-        private enum LadeskabState
+        public enum LadeskabState
         {
             Available,
             Locked,
             DoorOpen
         };
 
-        public  LadeskabState _state;
+        public  LadeskabState _state { get; set; }
         private IChargingControl _charger;
         public int _oldId { get; private set; }
         private IDoor _door;
@@ -35,11 +35,11 @@ namespace Library.Control
         private string logFile = "logfile.txt";
 
 
-        public StationControl(IChargingControl charger, IDoor door, IDisplay display, IrfIDReader rfIDReader, ILogFile LogFile)
+        public StationControl(IChargingControl charger, IDoor door, IrfIDReader rfIDReader, IDisplay display, ILogFile logFile)
         {
             door.DoorStateEvent += HandleDoorStateEvent;
 
-            rfIDReader.rfIDEvent += RfidDetected;
+            _rfIDReader.rfIDEvent += RfidDetected;
 
             _door = door;
 
@@ -47,20 +47,18 @@ namespace Library.Control
 
             _display = display;
 
-            _LogFile = LogFile;
+            _LogFile = logFile;
 
             _rfIDReader = rfIDReader;
 
             _state = LadeskabState.Available;
         }
 
-
-
         private void RfidDetected(object? rfIDReader, rfIDDetectedArgs e)
         {
             if (_state == LadeskabState.Available)
             {
-                if (!_charger.IsConnected())
+                if (!_charger.IsConnected)
                 {
                     _display.NotConnected();
                     using (var writer = File.AppendText(logFile))

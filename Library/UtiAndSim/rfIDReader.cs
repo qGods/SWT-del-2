@@ -14,10 +14,12 @@ namespace Library.UtiAndSim
     {
         public event EventHandler<rfIDDetectedArgs> rfIDEvent;
 
+        private int _ID;
+
         public void ReadrfID(int ID)
         {
+            _ID = ID;
             if (ID <=0) {return;}
-
             OnReadrfID(new rfIDDetectedArgs { rfIDDetected = ID });
         }
 
