@@ -13,7 +13,8 @@ namespace Library.UtiAndSim
 
         private DoorState _doorState;
 
-
+        public bool locked { get; set; }   
+        public bool _open { get; set; }     
         public Door()
         {
             _doorState = DoorState.open;
@@ -26,7 +27,7 @@ namespace Library.UtiAndSim
             if (newDoorState != _doorState)
             {
                 Console.WriteLine("Door is now " + newDoorState);
-                OnDoorState(new DoorStateEventArgs { DoorStateEvent = newDoorState });
+                OnDoorState();
                 _doorState = newDoorState;
             }
             else
@@ -37,24 +38,37 @@ namespace Library.UtiAndSim
         }
         //TODO: Instead of calling SetDoorState from other classes, make them call doorlock / doorunlock which then calls setdoorstate
         
-        protected virtual void OnDoorState(DoorStateEventArgs e)
+        protected virtual void OnDoorState()
         {
-            //call all the event handler methods which is registered with "DoorStateEvent"
-            //"subsribers" are the classes which will register to "DorStateEvent"
-            DoorStateEvent?.Invoke(this, e);
+            DoorStateEvent?.Invoke(this, new DoorStateEventArgs());
         }
 
         public void DoorLock()
         {
-            //Console.WriteLine("Door locked");
             SetDoorState(DoorState.closed);
-            //_doorState = DoorState.closed;
         }
 
         public void DoorUnlock()
         {
             SetDoorState(DoorState.open);
-            //_doorState = DoorState.open;
+
+        }
+
+        public void DoorOpened()
+        {
+            if (!locked)
+            {
+                _open = true;
+                OnDoorState();            
+            }
+
+
+        }
+
+        public void DoorClosed()
+        {
+            _open = false;
+            OnDoorState();    
         }
     }
 }
