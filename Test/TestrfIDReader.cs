@@ -25,7 +25,6 @@ namespace Test
         }
 
         
-        [TestCase(0)]
         [TestCase(10)]
         public void rfIDTest(int id)
         {
