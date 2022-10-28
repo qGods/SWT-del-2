@@ -28,10 +28,8 @@ namespace Library.Control
         private IDisplay _display;
         private IrfIDReader _rfIDReader;
         private ILogFile _LogFile;
-
         public DoorState _doorEvent { get; private set; }
         public int _rfIDEvent { get; private set;}
-
         private string logFile = "logfile.txt";
 
 

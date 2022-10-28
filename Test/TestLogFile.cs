@@ -41,7 +41,7 @@ namespace Test
             }
             var result = list[List.Count - 2] + list[list.Count - 1];
             string message = DateTime.Now + "\nID: {0} has locked the door", id;
-            Assert.That(result, message) ;
+            Assert.AreEqual<string>(result, message) ;
         }
 
 
