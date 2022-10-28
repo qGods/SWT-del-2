@@ -57,18 +57,12 @@ namespace Test
 
         [Test]
 
-        public void DoorOpenedEventTest() //Event test opened
+        public void DoorStateEventTest() //Event test opened
         {
             _uut.DoorOpened();
-            Assert.That(_open.DoorStateEvent, Is.False);
+            Assert.That(_open.DoorStateEvent, Is.EqualTo(DoorState.open));
         }
 
-        [Test]
 
-        public void DoorClosedEventTest() //Event test closed
-        {
-            _uut.DoorClosed();
-            Assert.That(_open.DoorStateEvent, Is.True);
-        }
     }
 }
