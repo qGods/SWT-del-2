@@ -27,7 +27,7 @@ namespace Library.UtiAndSim
             using (StreamWriter sw = new StreamWriter("LogFile.txt"))
             {
                 sw.WriteLine(DateTime.Now);
-                sw.WriteLine("ID:{0} has unlocked the door ", ID);
+                sw.WriteLine("ID:{0} has unlocked the door", ID);
             }
         }
     }
