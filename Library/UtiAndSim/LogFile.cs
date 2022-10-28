@@ -22,7 +22,7 @@ namespace Library.UtiAndSim
         }
 
 
-        public void logDoorUnlocked(string ID)
+        public void logDoorUnlocked(int ID)
         {
             using (StreamWriter sw = new StreamWriter("LogFile.txt"))
             {
