@@ -8,7 +8,7 @@ namespace Library.Interface
 {
     public interface ILogFile
     {
-        public void logDoorLocked(string ID);
-        public void logDoorUnlocked(string ID);
+        public void logDoorLocked(int ID);
+        public void logDoorUnlocked(int ID);
     }
 }

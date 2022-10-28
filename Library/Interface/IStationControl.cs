@@ -12,7 +12,7 @@ namespace Library.Interface
         StationControl.LadeskabState _state { get; set; }
         void OnDoorStateChange(object? door, DoorStateEventArgs doorArgs);
         void OnRFIDDetected(object? rfidReader, rfIDDetectedArgs rfidArgs);
-        int _oldID { get; set;}
+        int _oldID { get;}
 
     }
 }

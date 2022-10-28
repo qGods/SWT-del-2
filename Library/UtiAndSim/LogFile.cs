@@ -11,22 +11,22 @@ namespace Library.UtiAndSim
     public class LogFile : ILogFile
     {
 
-        public void logDoorLocked(string id )
+        public void logDoorLocked(int ID )
         {
             using (StreamWriter sw = new StreamWriter("LogFile.txt"))
             {
                 sw.WriteLine(DateTime.Now);
-                sw.WriteLine("ID:{0} has locked the door", id);
+                sw.WriteLine("ID:{0} has locked the door", ID);
             }
         }
 
 
-        public void logDoorUnlocked(string id)
+        public void logDoorUnlocked(string ID)
         {
             using (StreamWriter sw = new StreamWriter("LogFile.txt"))
             {
                 sw.WriteLine(DateTime.Now);
-                sw.WriteLine("ID:{0} has unlocked the door ", id);
+                sw.WriteLine("ID:{0} has unlocked the door ", ID);
             }
         }
     }

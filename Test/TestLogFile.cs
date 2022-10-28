@@ -29,16 +29,22 @@ namespace Test
 
             int id = 1;
             _uut.logDoorLocked(id.ToString());
-            List
+            var list = new List<string>();
             var fileStream = new FileStream(@".\LogFile.txt", FileMode.Open, FileAccess.Read);
 
             using (var streamReader = new StreamReader(fileStream)
             {
-                while(streamReader.Peek != -1);
+                while(streamReader.Peek != -1)
+                {
+                    list.Add(streamReader.ReadLine());
+                }
             }
-            string message = DateTime.Now + "ID: {0} has locked the door";
-            Assert.That(id, message) ;
+            var result = list[List.Count - 2] + list[list.Count - 1];
+            string message = DateTime.Now + "\nID: {0} has locked the door", id;
+            Assert.That(result, message) ;
         }
+
+
     
     }
 

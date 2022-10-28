@@ -11,7 +11,7 @@ using Library.UtiAndSim;
 
 namespace Library.Control
 {
-    public class StationControl
+    public class StationControl: IStationControl
     {
         // Enum med tilstande ("states") svarende til tilstandsdiagrammet for klassen
         public enum LadeskabState
@@ -146,7 +146,7 @@ namespace Library.Control
             }
         }
 
-        private void AvailableState(int ID)
+        private void AvailableState(object? rfidReader, rfIDDetectedArgs rfidArgs)
         {
             if (!IsConnected())
             {
@@ -158,7 +158,7 @@ namespace Library.Control
                 _oldID = rfidArgs.ID;
                 _state = LadeskabState.Locked;
                 _display.scanRfid();
-                _LogFile.logDoorLocked(ID.ToString());
+                _LogFile.logDoorLocked(_oldID);
                 _charger.StartCharge();
             }
         }
@@ -175,7 +175,7 @@ namespace Library.Control
                 _display.removePhone();
                 _state = LadeskabState.Available;
                 _charger.StopCharge();
-                _LogFile.logDoorUnlocked(ID.ToString());
+                _LogFile.logDoorUnlocked(_oldID);
             }
         }
 
