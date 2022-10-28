@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="TestChargeControl.cs" />
     <Compile Remove="TestStatinControl.cs" />
   </ItemGroup>
 
