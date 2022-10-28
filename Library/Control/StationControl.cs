@@ -39,6 +39,7 @@ namespace Library.Control
 
             _rfIDReader.rfIDEvent += RfidDetected;
 
+
             _door = door;
 
             _charger = charger;

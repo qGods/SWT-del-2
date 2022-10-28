@@ -89,16 +89,17 @@ namespace Library.Control
                 {
                     return;
                 }
-
+                _usbCharger.StopCharge();
                 state = ChargeState.OverCharged;
                 _display.OverCharged();
             }
             else
             {
+                
                 if (state == ChargeState.NotConnected)
                 {
                     return;
-                }
+                } 
 
                 state = ChargeState.NotConnected;
                 _display.NotConnected();
