@@ -156,6 +156,7 @@ namespace Library.Control
                 _oldID = rfidArgs.ID;
                 _state = LadeskabState.Locked;
                 _display.scanRfid();
+                _display.occupied();
                 _LogFile.logDoorLocked(_oldID);
                 _charger.StartCharge();
             }
