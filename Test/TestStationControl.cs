@@ -26,7 +26,7 @@ namespace Test
         [SetUp]
         public void SetUp()
         {
-            /// Setup fakes.
+            /// Setup fakes..
             _rfIDReader = Substitute.For<IrfIDReader>();
             _door = Substitute.For<IDoor>();
             _logFile = Substitute.For<ILogFile>();
