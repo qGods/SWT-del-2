@@ -75,7 +75,7 @@ namespace Library.Control
                 _state = LadeskabState.Locked;
             }
 
-            else if (_state == LadeskabState.Locked)
+            else //if (_state == LadeskabState.Locked)
                 {
                     if (CheckID(rfidArgs.ID))
                     {

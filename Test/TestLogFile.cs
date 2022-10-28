@@ -44,6 +44,27 @@ namespace Test
             Assert.That(result, Is.EqualTo(message));
         }
 
+        [Test]
+        public void logDoorUnLockedTest()
+        {
+            int id = 1;
+            _uut.logDoorUnlocked(id);
+            var list = new List<string>();
+            var fileStream = new FileStream(@".\LogFile.txt", FileMode.Open, FileAccess.Read);
+
+            using (var streamReader = new StreamReader(fileStream))
+            {
+                while (streamReader.Peek() != -1)
+                {
+                    list.Add(streamReader.ReadLine());
+                }
+            }
+
+            var result = list[list.Count - 2] + list[list.Count - 1];
+            string message = DateTime.Now + "ID:1 has unlocked the door";
+            Assert.That(result, Is.EqualTo(message));
+        }
+
     }
 
 }
