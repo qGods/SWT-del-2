@@ -72,21 +72,35 @@ namespace Test
         {
             _usbCharger.CurrentValueEvent += Raise.EventWith(new CurrentEventArgs { Current = -10 });
             _display.Received(1).NotConnected();
+
         }
         [Test]
         //No idea why this is failing
-        public void ChargerIntervalsTest_0ma()
-        {
-
-            //Issue is chargestate being not connected in charging control but can't figure out how to change it.
-            _uut.StartCharge();
-            _usbCharger.StartCharge();
-            _usbCharger.Connected.Returns(true);
-            _uut.IsConnected.Returns(true);
-            
+        public void ChargerIntervalsTest_00ma()
+        {        
             _usbCharger.CurrentValueEvent += Raise.EventWith(new CurrentEventArgs { Current = 0 });
             _display.Received(1).NotConnected();
         }
+        [Test]
+        public void ChargerIntervalsTest_01ma()
+        {
+         _usbCharger.CurrentValueEvent += Raise.EventWith(new CurrentEventArgs { Current = 1 });
+         _display.Received(1).FullCharge();
+
+
+        }
+        [Test]
+        public void ChargerIntervalsTest_04ma()
+        {
+            _usbCharger.CurrentValueEvent += Raise.EventWith(new CurrentEventArgs { Current = 4 });
+            _display.Received(1).FullCharge();
+
+        }
+
+
+
+
+
         [Test]
         public void ChargerIntervalsTest_5ma()
         {  
@@ -94,11 +108,27 @@ namespace Test
             _display.Received(1).FullCharge();
         }
         [Test]
+        public void ChargerIntervalsTest_6ma()
+        {
+            _usbCharger.CurrentValueEvent += Raise.EventWith(new CurrentEventArgs { Current = 6 });
+            _display.Received(1).NormalCharge();
+        }
+
+        [Test]
         public void ChargerIntervalsTest_100ma()
         {
             _usbCharger.CurrentValueEvent += Raise.EventWith(new CurrentEventArgs { Current = 100 });
             _display.Received(1).NormalCharge();
         }
+        [Test]
+        public void ChargerIntervalsTest_499ma()
+        {  
+        }
+        [Test]
+        public void ChargerIntervalsTest_500ma()
+        {  
+        }
+        
         [Test]
         public void ChargerIntervalsTest_501ma()
         {

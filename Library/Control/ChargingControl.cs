@@ -18,7 +18,7 @@ namespace Library.Control
         private const double FullyChargedCurrent = 5; 
         private const double NoChargeCurrent = 0.0;
 
-        private enum ChargeState
+        public enum ChargeState
         {
             NotConnected,
             NormalCharge,
@@ -26,7 +26,7 @@ namespace Library.Control
             OverCharged
         };
 
-        private ChargeState state;
+        public ChargeState state { get; set;}
         public bool IsConnected { get; set; }
         public double currentValue { get; private set; }
 
@@ -61,7 +61,7 @@ namespace Library.Control
             _usbCharger.StopCharge();
         }
 
-        private void CurrentState()
+        public void CurrentState()
         {
             if (currentValue <= FullyChargedCurrent && currentValue > NoChargeCurrent)
             {
@@ -95,14 +95,8 @@ namespace Library.Control
             }
             else
             {
-                
-                if (state == ChargeState.NotConnected)
-                {
-                    return;
-                }
                 _display.NotConnected();
-                state = ChargeState.NotConnected;
-                
+                state = ChargeState.NotConnected;                
             }
         }
 
