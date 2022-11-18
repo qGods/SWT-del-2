@@ -24,7 +24,7 @@ namespace Test
             _uut = new ChargingControl(_usbCharger, _display);
 
         }
-        //Tests that starting charging control starts the charger and connected it. 
+        //Tests that starting charging control starts the charger, and connected it. 
         [Test]
         public void StartChargeTest()
         {
