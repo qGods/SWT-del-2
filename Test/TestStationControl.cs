@@ -32,7 +32,7 @@ namespace Test
             _logFile = Substitute.For<ILogFile>();
             _chargingControl = Substitute.For<IChargingControl>();
             _display = Substitute.For<IDisplay>();
-            _uut = new StationControl(_chargingControl, _door,  _rfIDReader, _display, _logFile);
+            _uut = new StationControl(_chargingControl, _door, _rfIDReader, _display, _logFile);
         }
 
         [Test]
@@ -55,11 +55,11 @@ namespace Test
         public void rfIDReaderDetected_Availabe()
         {
             _uut._state = StationControl.LadeskabState.Available;
-            _chargingControl.IsConnected = false;
-            _rfIDReader.rfIDEvent += Raise.EventWith(new rfIDDetectedArgs() { rfIDDetected = 1 });
+            _chargingControl.IsConnected.Returns(false);
+            _rfIDReader.rfIDEvent += Raise.EventWith(new rfIDDetectedArgs() { ID = 1 });
             _chargingControl.Received(0).StartCharge();
             _door.Received(0).DoorLock();
-            _logFile.Received(0).logDoorLocked('1');
+            _logFile.Received(0).logDoorLocked(1);
 
             Assert.That(_uut._state, Is.EqualTo(StationControl.LadeskabState.Available));
         }
@@ -68,19 +68,19 @@ namespace Test
         public void rfIDReaderDetected2_Availabe()
         {
             _uut._state = StationControl.LadeskabState.Available;
+
             _chargingControl.IsConnected = false;
-            _rfIDReader.rfIDEvent += Raise.EventWith(new rfIDDetectedArgs() { rfIDDetected = 1 });
+            _rfIDReader.rfIDEvent += Raise.EventWith(new rfIDDetectedArgs() { ID = 1 });
             _chargingControl.Received(0).StartCharge();
             _door.Received(0).DoorLock();
             _logFile.Received(0).logDoorLocked('1');
             Assert.That(_uut._state, Is.EqualTo(StationControl.LadeskabState.Available));
 
             _chargingControl.IsConnected = true;
-            _rfIDReader.rfIDEvent += Raise.EventWith(new rfIDDetectedArgs() { rfIDDetected = 1 });
-
-            _chargingControl.Received(0).StartCharge();
+            _rfIDReader.rfIDEvent += Raise.EventWith(new rfIDDetectedArgs() { ID = 1 });
+            _chargingControl.Received(1).StartCharge();
             _door.Received(1).DoorLock();
-            _logFile.Received(1).logDoorLocked('1');
+            _logFile.Received(1).logDoorLocked(1);
             Assert.That(_uut._state, Is.EqualTo(StationControl.LadeskabState.Locked));
         }
 
@@ -88,26 +88,26 @@ namespace Test
         [Test]
         public void rfIDReaderDetected_Locked()
         {
-            _uut._state = StationControl.LadeskabState.Locked;
+            _uut._state = StationControl.LadeskabState.Available;
             _chargingControl.IsConnected = true;
-            _rfIDReader.rfIDEvent += Raise.EventWith(new rfIDDetectedArgs() { rfIDDetected = 2 });
+            _rfIDReader.rfIDEvent += Raise.EventWith(new rfIDDetectedArgs() { ID = 2 });
 
             Assert.That(_uut._state, Is.EqualTo(StationControl.LadeskabState.Locked));
-            Assert.That(_uut._rfIDEvent, Is.EqualTo(2));
+            Assert.That(_uut._oldID, Is.EqualTo(2));
 
-            _rfIDReader.rfIDEvent += Raise.EventWith(new rfIDDetectedArgs() { rfIDDetected = 1 });
+            _rfIDReader.rfIDEvent += Raise.EventWith(new rfIDDetectedArgs() { ID = 1 });
             _chargingControl.Received(0).StopCharge();
             _display.Received(1).rfidError();
             Assert.That(_uut._state, Is.EqualTo(StationControl.LadeskabState.Locked));
 
-            _rfIDReader.rfIDEvent += Raise.EventWith(new rfIDDetectedArgs() { rfIDDetected = 2 });
-            _chargingControl.Received(0).StopCharge();
+            _rfIDReader.rfIDEvent += Raise.EventWith(new rfIDDetectedArgs() { ID = 2 });
+            _chargingControl.Received(1).StopCharge();
             _door.Received(1).DoorLock();
             Assert.That(_uut._state, Is.EqualTo(StationControl.LadeskabState.Available));
 
 
             _door.DoorStateEvent += Raise.EventWith(new DoorStateEventArgs() { DoorStateEvent = DoorState.open });
-            _rfIDReader.rfIDEvent += Raise.EventWith(new rfIDDetectedArgs() { rfIDDetected = 2 });
+            _rfIDReader.rfIDEvent += Raise.EventWith(new rfIDDetectedArgs() { ID = 2 });
             Assert.That(_uut._state, Is.EqualTo(StationControl.LadeskabState.DoorOpen));
 
 

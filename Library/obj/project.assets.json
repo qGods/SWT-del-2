@@ -8,19 +8,24 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\jepp5\\.nuget\\packages\\": {}
+    "C:\\Users\\moham\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jepp5\\Documents\\GitHub\\SWT-del-2\\Library\\Library.csproj",
+      "projectUniqueName": "C:\\Users\\moham\\Uni(Software)\\4.Semester\\SWT\\SWT_Asignment2\\SWT-del-2\\Library\\Library.csproj",
       "projectName": "Library",
-      "projectPath": "C:\\Users\\jepp5\\Documents\\GitHub\\SWT-del-2\\Library\\Library.csproj",
-      "packagesPath": "C:\\Users\\jepp5\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jepp5\\Documents\\GitHub\\SWT-del-2\\Library\\obj\\",
+      "projectPath": "C:\\Users\\moham\\Uni(Software)\\4.Semester\\SWT\\SWT_Asignment2\\SWT-del-2\\Library\\Library.csproj",
+      "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\moham\\Uni(Software)\\4.Semester\\SWT\\SWT_Asignment2\\SWT-del-2\\Library\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\jepp5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\moham\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -61,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
